@@ -1,0 +1,43 @@
+/*
+Tiago Fernandes - todo
+*/
+:-[satisfy,induce_ifthen,aquisicaoAutomatica2].
+
+learn_rules:-
+    %examples
+	learn(1),
+	learn(2),
+    learn(3),
+    learn(4),
+	learn(5),
+    learn(6),
+    learn(7),
+	learn(8),
+    learn(9),
+    learn(10),
+	learn(11),
+    learn(12),
+    learn(13),
+	learn(14),
+    learn(15),
+    learn(16),
+	learn(17),
+    learn(18),
+    learn(19),
+	learn(20),
+    learn(21),
+    learn(22),
+	learn(23),
+    learn(24),
+    learn(25),
+	learn(26),
+    learn(27),
+    learn(28),
+	learn(29),
+    learn(30),
+    learn(31),
+	learn(32),
+        % save new rules:
+	tell('aquisicao_ifthen.pl'),
+	listing(<==),
+	told.
