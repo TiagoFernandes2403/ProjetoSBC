@@ -1,5 +1,5 @@
 /* 
-Tiago Fernandes - todo
+Tiago
 */
 :-dynamic(fact/1),
 [forward, ifthen_rules, baseDados].
@@ -83,6 +83,6 @@ fim :- 			write('***************************************************************
 				procura.
 
 fimprocura(P):- nl, nl,
-					write('    Prato Sugerido: '),perfilConsumidor(P),nl,nl,
+					write('    Prato Sugerido: '),perfilConsumidor(P),retractall(fact(_)),nl,nl,
 					write('********************************************************************************************************').
 					

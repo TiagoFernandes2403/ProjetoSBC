@@ -1,5 +1,5 @@
 /*
-Tiago Fernandes - todo
+Pedro Fontes + Tiago
 */
 :-[satisfy,induce_ifthen,aquisicaoAutomatica2].
 

@@ -1,5 +1,5 @@
 /*
-Pedro Fontes
+Pedro
 */
 %lucro(cliente, valor)
 lucro(restaurante, 0).

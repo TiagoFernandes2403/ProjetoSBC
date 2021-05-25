@@ -1,8 +1,8 @@
 /*
-David Oliveira - l74 a l100
-Gonçalo Adães - l102 a l139
-Pedro Fontes - l21 a l46, 
-Tiago Fernandes - l8 a l19, l49 a l71
+David  - l74 a l100
+Gonçalo  - l102 a l139
+Pedro  - l21 a l46, 
+Tiago  - l8 a l19, l49 a l71
 */
 /*prato(Nome, Preco, Descricao, Dieta, YonaPais, Proteina, Idade)*/
 /*pratos carne*/

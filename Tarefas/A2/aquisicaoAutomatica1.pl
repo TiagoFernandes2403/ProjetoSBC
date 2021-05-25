@@ -1,8 +1,7 @@
 /*
-David Oliveira - l7 a l60
-Gonçalo Adães - l62 a l106
-Pedro Fontes - l108 a l152
-Tiago Fernandes - l154 a l160
+David  - l7 a l60
+Gonçalo  - l62 a l106
+Pedro  - l108 a l152
 */
 :-[preprocess], dynamic(example/2),dynamic(data/1).
 
