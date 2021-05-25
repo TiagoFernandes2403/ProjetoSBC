@@ -1,24 +1,24 @@
 /*
 Tiago - adaptacao do codigo original e comentarios
 */
-% adaptado do orginial fornecido pelo docente Paulo Cortez
+// adaptado do orgininal fornecido pelo docente Paulo Cortez
 :- dynamic(hbest_sofar/2).
 
-% retorna a distancia do caminho atual
+// retorna a distancia do caminho atual
 eval(C,D) :- distancia_total(C,D).
 
-% verifica se existe outro caminho possivel
+// verifica se existe outro caminho possivel
 change(X,Y, SNEW):- findall(C, caminho(X,Y,C),L),length(L,LE),random(0,LE,R),nth0(R,L,SNEW).
 
-% determina um caminho inicial e inicia o metodo hillclimbling com 20 iterações
+// determina um caminho inicial e inicia o metodo hillclimbling com 20 iterações
 demo(X,Y,C):- caminho(X,Y,Caminho), hill_climbing(X,Y,Caminho,[20,20,0,min],_),write(C),!.
 
-% internal auxiliary rules, used to update hbest_sofar:
+// internal auxiliary rules, used to update hbest_sofar:
 update_hbest(S,E,Opt):-	hbest_sofar(SB,EB),
                     	best_opt(0,Opt,S,E,SB,EB,SR,ER),
                         retract(hbest_sofar(SB,EB)),assert(hbest_sofar(SR,ER)).
 
-% return SR,ER the best value of S1 and S2:
+// retorna SR,ER o melhor valor dentre as duas solucoes S1 e S2:
 best(Prob,Opt,S1,E1,S2,E2,SR,ER):- 
 	eval(S2,E2),
         update_hbest(S2,E2,Opt), % update hbest_sofar if needed
@@ -32,7 +32,7 @@ best_opt(_,Opt,S1,E1,S2,E2,SR,ER):- % else, select the best one
     ((Opt=max,max_list([E1,E2],ER));(Opt=min,min_list([E1,E2],ER))),
     ((ER==E1,SR=S1); (ER==E2,SR=S2)).
 
-% show evolution:
+// mostra solucao otima, o caminho inicial e o final que coicide com otimo:
 show(final,Verbose,S1,E1,_,_):- 
 	 Verbose>0,
 	 write('final:'),write(' S:'),write(S1),write(' E:'),write(E1),nl,!.
@@ -76,8 +76,8 @@ show(_,_,_,_,_,_).
 % /3 arity, main function:
 hill_climbing(X,Y,S0,[Iter,Verbose,Prob,Opt],SB):-
 	eval(S0,E0),
-        retractall(hbest_sofar(_,_)), % remove any previous hbest_sofar
-        assert(hbest_sofar(S0,E0)), % update hbest_sofar
+        retractall(hbest_sofar(_,_)), % remove qualquer valor aramzenado  hbest_sofar
+        assert(hbest_sofar(S0,E0)), % atualiza facto hbest_sofar
         show(0,Verbose,S0,E0,_,_),
 	hill_climbing(X,Y,S0,E0,0,Iter,Verbose,Prob,Opt,S1),
       
@@ -88,8 +88,8 @@ hill_climbing(X,Y,S0,[Iter,Verbose,Prob,Opt],SB):-
 % /8 arity, auxiliary function:
 hill_climbing(_,_,S,_,Iter,Iter,_,_,_,S):-!. 
 hill_climbing(X,Y,S1,E1,I,Iter,Verbose,Prob,Opt,SFinal):-
-	change(X,Y,SNew),
-	best(Prob,Opt,S1,E1,SNew,_,S2,E2),
-	I1 is I+1,
+	change(X,Y,SNew), % chama metodo de verificacao
+	best(Prob,Opt,S1,E1,SNew,_,S2,E2), % metodo para comparar dois caminhos
+	I1 is I+1, % incrementa numero de iteracoes
         show(I1,Verbose,S1,E1,S2,E2),
 	hill_climbing(X,Y,S2,E2,I1,Iter,Verbose,Prob,Opt,SFinal),!.
