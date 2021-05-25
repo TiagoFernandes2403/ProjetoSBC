@@ -48,6 +48,6 @@ pergunta2:-	nl,nl,write('*******************************************************
 			write('**  3 - breadthfirst'), nl, nl,
 			read(P2),
 			(
-			(P2 == 1), run(depthfirst);
-            (P2 == 2), run(iterativedeepening);
-			(P2 == 3), run(breadthfirst)).
+			(P2 == 1), run(depthfirst), retractall(initial(_)), retractall(goal(_)), retractall(getLucro(_));
+            (P2 == 2), run(iterativedeepening), retractall(initial(_)), retractall(goal(_)), retractall(getLucro(_));
+			(P2 == 3), run(breadthfirst), retractall(initial(_)), retractall(goal(_)), retractall(getLucro(_))).

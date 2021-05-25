@@ -33,6 +33,7 @@ pergunta1:-	nl,nl,write('*******************************************************
 			read(P1),
 			(
 			(P1 == 1), 	write("Funcionalidade nao implementada.");
-			(P1 == 2),  resultado(mais_rapido), retract(resultado(mais_rapido));
-            (P1 == 3), 	resultado(hillclimbing), retract(resultado(hillclimbing));
-			(P1 == 4), 	write("Funcionalidade nao implementada.")).
+			(P1 == 2),  resultado(mais_rapido);
+            (P1 == 3), 	resultado(hillclimbing);
+			(P1 == 4), 	write("Funcionalidade nao implementada.");
+			retractall(resultado(_))).
