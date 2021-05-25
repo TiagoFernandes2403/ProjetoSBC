@@ -2,7 +2,7 @@
 David + Gonçalo + Pedro 
 */
 :-dynamic(fact/1), dynamic(resultado/1),
-[determinar_trajeto].
+[otimTrajeto].
 
 inicio:- nl,nl ,write('*********************************************************************************************************'), nl,nl,
 				write('                                   OTIMIZACAO DO TRAJETO PARA UMA ENTREGA                                '), nl,nl,
@@ -27,13 +27,13 @@ pergunta1:-	nl,nl,write('*******************************************************
 			write('**  Selecione um metodo de otimizacao para a sua entrega!'), nl,
 			write('**'),nl,
 			write('**  1 - Tendo em conta o lucro maximo.'), nl,
-			write('**  2 - Tendo em conta o tempo de entrega minimo, pelo metodo mais_rapido.'), nl,
+			write('**  2 - Tendo em conta o tempo de entrega minimo, pelo metodo menorDistancia.'), nl,
 			write('**  3 - Tendo em conta o tempo de entrega minimo, pelo metodo hillclimbing.'), nl,
-			write('**  4 - Tendo em conta uma analise combinada dos dois fatores anteriores.'), nl, nl,
+			write('**  4 - Tendo em conta uma analise combinada entre o lucro maximo e tempo de entrega minimo.'), nl, nl,
 			read(P1),
 			(
 			(P1 == 1), 	write("Funcionalidade nao implementada.");
-			(P1 == 2),  resultado(mais_rapido);
+			(P1 == 2),  resultado(menorDistancia);
             (P1 == 3), 	resultado(hillclimbing);
 			(P1 == 4), 	write("Funcionalidade nao implementada.");
 			retractall(resultado(_))).

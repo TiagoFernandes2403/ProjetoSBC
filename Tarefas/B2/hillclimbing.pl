@@ -1,24 +1,24 @@
 /*
 Tiago - adaptacao do codigo original e comentarios
 */
-// adaptado do orgininal fornecido pelo docente Paulo Cortez
+% adaptado do orgininal fornecido pelo docente Paulo Cortez
 :- dynamic(hbest_sofar/2).
 
-// retorna a distancia do caminho atual
+% retorna a distancia do caminho atual
 eval(C,D) :- distancia_total(C,D).
 
-// verifica se existe outro caminho possivel
+% verifica se existe outro caminho possivel
 change(X,Y, SNEW):- findall(C, caminho(X,Y,C),L),length(L,LE),random(0,LE,R),nth0(R,L,SNEW).
 
-// determina um caminho inicial e inicia o metodo hillclimbling com 20 iterações
+% determina um caminho inicial e inicia o metodo hillclimbling com 20 iterações
 demo(X,Y,C):- caminho(X,Y,Caminho), hill_climbing(X,Y,Caminho,[20,20,0,min],_),write(C),!.
 
-// internal auxiliary rules, used to update hbest_sofar:
+% internal auxiliary rules, used to update hbest_sofar:
 update_hbest(S,E,Opt):-	hbest_sofar(SB,EB),
                     	best_opt(0,Opt,S,E,SB,EB,SR,ER),
                         retract(hbest_sofar(SB,EB)),assert(hbest_sofar(SR,ER)).
 
-// retorna SR,ER o melhor valor dentre as duas solucoes S1 e S2:
+% retorna SR,ER o melhor valor dentre as duas solucoes S1 e S2:
 best(Prob,Opt,S1,E1,S2,E2,SR,ER):- 
 	eval(S2,E2),
         update_hbest(S2,E2,Opt), % update hbest_sofar if needed
@@ -32,7 +32,7 @@ best_opt(_,Opt,S1,E1,S2,E2,SR,ER):- % else, select the best one
     ((Opt=max,max_list([E1,E2],ER));(Opt=min,min_list([E1,E2],ER))),
     ((ER==E1,SR=S1); (ER==E2,SR=S2)).
 
-// mostra solucao otima, o caminho inicial e o final que coicide com otimo:
+% mostra solucao otima, o caminho inicial e o final que coicide com otimo:
 show(final,Verbose,S1,E1,_,_):- 
 	 Verbose>0,
 	 write('final:'),write(' S:'),write(S1),write(' E:'),write(E1),nl,!.
