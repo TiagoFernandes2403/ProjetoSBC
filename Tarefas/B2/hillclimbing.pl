@@ -1,3 +1,6 @@
+/*
+Tiago - adaptacao do codigo original e comentarios
+*/
 % adaptado do orginial fornecido pelo docente Paulo Cortez
 :- dynamic(hbest_sofar/2).
 

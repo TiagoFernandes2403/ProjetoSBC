@@ -1,9 +1,9 @@
 /*
-Tiago Fernandes - todo
+Tiago Fernandes
 */
 :-[search, baseDados].
 
-restaurant(restaurante, [cliente4, cliente5],[5,7]).
+restaurant(restaurante, [cliente1, cliente2, cliente3, cliente4, cliente5],[5,6,7,5,7]).
 
 % viagem(Client1,Client2,distance):
 viagem(X,Y,MIN):-(road(X,Y,MIN);road(Y,X,MIN)). % if road or symmetrical
