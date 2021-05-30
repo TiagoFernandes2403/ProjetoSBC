@@ -1,6 +1,7 @@
 /* 
 Tiago
 */
+
 :-dynamic(fact/1),
 [forward, ifthen_rules, baseDados].
 

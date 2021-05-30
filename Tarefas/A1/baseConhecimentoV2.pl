@@ -3,6 +3,7 @@ David  - l74 a l100
 Gonçalo  - l36 a l61
 Pedro  - l65 a l96
 */
+
 if i16_30 and geral and norte_centro and carne then 1.
 if i16_30 and ligeira and norte_centro and carne then 2.
 

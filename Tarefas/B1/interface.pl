@@ -3,6 +3,7 @@ David - l6 a l26
 Tiago - l28 a l40
 Gonçalo - l43 a l53
 */
+
 :-dynamic(fact/1),
 [viagem].
 

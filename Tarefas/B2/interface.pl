@@ -1,6 +1,7 @@
 /*
 David + Gonçalo + Pedro 
 */
+
 :-dynamic(fact/1), dynamic(resultado/1),
 [otimTrajeto].
 
